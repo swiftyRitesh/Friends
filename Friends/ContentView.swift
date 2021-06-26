@@ -24,7 +24,8 @@ struct ContentView: View {
     
     var body: some View {
         
-            List(friends) { friend in
+            List(friends) {
+                friend in
                 Image(systemName: friend.icon)
                 
                 VStack(alignment: .leading) {
