@@ -14,11 +14,11 @@ struct ContentView: View {
                            school: "PHSS",
                            slothImage: "sloth3"),
                     Friend(name: "Jia Chen",
-                           icon: "swift",
+                           icon: "zzz",
                            school: "Ngee Ann Poly",
                            slothImage: "sloth2"),
                     Friend(name: "Mr 🔜",
-                           icon: "zzz",
+                           icon: "swift",
                            school: "Tinkercademy",
                            slothImage: "sloth1")]
     
