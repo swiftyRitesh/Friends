@@ -21,4 +21,6 @@ struct Friend: Identifiable {
     
     var attack: Double
     var defence: Double
+    
+    var type: [FriendType]
 }

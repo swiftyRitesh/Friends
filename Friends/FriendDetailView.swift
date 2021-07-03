@@ -12,40 +12,78 @@ struct FriendDetailView: View {
     @Environment(\.openURL) var openURL
     var body: some View {
         
-        NavigationView {
+        
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(LinearGradient(
+                    gradient: Gradient(colors: [.yellow, .green, .blue]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ))
+                .aspectRatio(contentMode: .fill)
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
             
-            VStack(spacing: 0) {
-                Image(friend.slothImage)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 300)
+            
+            
+            ScrollView {
                 
-                Image(friend.name)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 250, height: 250)
-                    .mask(Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(lineWidth: 8)
-                            .foregroundColor(.white)
-                    )
-                    .offset(x: 0, y: -250 / 2)
-                    .shadow(radius: 6)
-                    .padding(.bottom, -250 / 2)
-                    .onTapGesture {
-                        openURL(URL(string: "https://shorturl.at/stuA7")!)
+                VStack(spacing: 0) {
+                    Image(friend.slothImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 300)
+                    
+                    Image(friend.name)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 250, height: 250)
+                        .mask(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(lineWidth: 8)
+                                .foregroundColor(.white)
+                        )
+                        .offset(x: 0, y: -250 / 2)
+                        .shadow(radius: 6)
+                        .padding(.bottom, -250 / 2)
+                        .onTapGesture {
+                            openURL(friend.link)
+                        }
+                    
+                    HStack {
+                        ForEach (friend.type, id: \.rawValue) { type in
+                            Label(type.rawValue, systemImage: type.getSymbolName())
+                                .padding(10)
+                                .background(Color.blue)
+                                .cornerRadius(15)
+                        }
                     }
-                
-                
-                
-                Text("\(Image(systemName: friend.icon)) \(friend.school)")
-                    .font(.system(size: 24))
-                
-                Spacer()
-                
+                    .padding()
+                    
+                    
+                    Text("\(Image(systemName: friend.icon)) \(friend.school)")
+                        .font(.system(size: 24))
+                    
+                    VStack {
+                        Text("Attack")
+                        Slider(value: $friend.attack,
+                               in: 0...30,
+                               step: 1)
+                        Text("Defence")
+                        Slider(value: $friend.defence,
+                               in: 0...30,
+                               step: 1)
+                    }
+                    .padding()
+                    
+                    Spacer()
+                    
+                }
+                .navigationTitle(friend.name)
             }
-            .navigationTitle(friend.name)
+            .scaledToFit()
+            
         }
     }
     
@@ -58,7 +96,10 @@ struct FriendDetailView_Previews: PreviewProvider {
                                    icon: "pc",
                                    school: "Tinkercademy",
                                    slothImage: "sloth1",
-                                   link: URL(string: "https://shorturl.at/stuA7")!)))
+                                   link: URL(string: "https://shorturl.at/stuA7")!,
+                                   attack: 10,
+                                   defence: 15,
+                                   type: [.grass, .electric])))
     }
 }
 /*
