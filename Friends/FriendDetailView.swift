@@ -1,0 +1,80 @@
+//
+//  FriendDetailView.swift
+//  Friends
+//
+//  Created by Ritesh Sathiyamoorthi on 26/6/21.
+//
+
+import SwiftUI
+
+struct FriendDetailView: View {
+    @Binding var friend: Friend
+    @Environment(\.openURL) var openURL
+    var body: some View {
+        
+        NavigationView {
+            
+            VStack(spacing: 0) {
+                Image(friend.slothImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 300)
+                
+                Image(friend.name)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 250, height: 250)
+                    .mask(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(lineWidth: 8)
+                            .foregroundColor(.white)
+                    )
+                    .offset(x: 0, y: -250 / 2)
+                    .shadow(radius: 6)
+                    .padding(.bottom, -250 / 2)
+                    .onTapGesture {
+                        openURL(URL(string: "https://shorturl.at/stuA7")!)
+                    }
+                
+                
+                
+                Text("\(Image(systemName: friend.icon)) \(friend.school)")
+                    .font(.system(size: 24))
+                
+                Spacer()
+                
+            }
+            .navigationTitle(friend.name)
+        }
+    }
+    
+}
+
+struct FriendDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        FriendDetailView(friend: .constant(
+                            Friend(name: "Jia Chen",
+                                   icon: "pc",
+                                   school: "Tinkercademy",
+                                   slothImage: "sloth1",
+                                   link: URL(string: "https://shorturl.at/stuA7")!)))
+    }
+}
+/*
+ 
+ @State var friends = [
+ Friend(name: "Ritesh",
+ icon: "paperplane.fill",
+ school: "PHSS",
+ slothImage: "sloth3"),
+ Friend(name: "Jia Chen",
+ icon: "zzz",
+ school: "Ngee Ann Poly",
+ slothImage: "sloth2"),
+ Friend(name: "Mr 🔜",
+ icon: "swift",
+ school: "Tinkercademy",
+ slothImage: "sloth1")
+ ]
+ */
