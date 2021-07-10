@@ -57,17 +57,17 @@ struct ContentView: View {
                             ForEach(friends[index].type, id:\.rawValue) { type in
                                 Image(systemName: type.getSymbolName())
                             }
-                            }
                         }
                     }
                 }
-                .navigationTitle("Friends")
             }
+            .navigationTitle("Friends")
         }
     }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
+}

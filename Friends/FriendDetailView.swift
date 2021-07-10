@@ -102,20 +102,3 @@ struct FriendDetailView_Previews: PreviewProvider {
                                    type: [.grass, .electric])))
     }
 }
-/*
- 
- @State var friends = [
- Friend(name: "Ritesh",
- icon: "paperplane.fill",
- school: "PHSS",
- slothImage: "sloth3"),
- Friend(name: "Jia Chen",
- icon: "zzz",
- school: "Ngee Ann Poly",
- slothImage: "sloth2"),
- Friend(name: "Mr 🔜",
- icon: "swift",
- school: "Tinkercademy",
- slothImage: "sloth1")
- ]
- */
