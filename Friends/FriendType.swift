@@ -29,7 +29,7 @@ enum FriendType: String {
         case .electric:
             return "bolt"
         case .ice:
-            return "snowflake"
+            return "snow"
         }
     }
     

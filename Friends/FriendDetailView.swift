@@ -75,8 +75,10 @@ struct FriendDetailView: View {
                                in: 0...30,
                                step: 1)
                     }
-                    .padding()
-                    
+                    .frame(width: 400)
+                    .padding(.vertical)
+                    .scaledToFit()
+                                        
                     Spacer()
                     
                 }

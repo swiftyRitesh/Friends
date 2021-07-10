@@ -41,33 +41,49 @@ struct ContentView: View {
     ]
     
     var body: some View {
+        
         NavigationView {
-            List(0..<friends.count) { index in
-                NavigationLink(destination: FriendDetailView(friend: $friends[index])) {
-                    Image(systemName: friends[index].icon)
+            List {
+                ForEach(friends) { friend in
+                    let friendIndex = friends.firstIndex(of: friend)!
                     
-                    VStack(alignment: .leading) {
-                        Text(friends[index].name)
-                            .bold()
-                        HStack {
-                            Text(friends[index].school)
-                            
-                            Spacer()
-                            
-                            ForEach(friends[index].type, id:\.rawValue) { type in
-                                Image(systemName: type.getSymbolName())
+                    NavigationLink(destination: FriendDetailView(friend: $friends[friendIndex])) {
+                        Image(systemName: friend.icon)
+                        
+                        VStack(alignment: .leading) {
+                            Text(friend.name)
+                                .bold()
+                            HStack {
+                                Text(friend.school)
+                                
+                                Spacer()
+                                
+                                ForEach(friend.type, id: \.rawValue) { type in
+                                    Image(systemName: type.getSymbolName())
+                                }
                             }
                         }
                     }
                 }
+                .onDelete { offsets in
+                    friends.remove(atOffsets: offsets)
+                }
+                .onMove { source, destination in
+                    friends.move(fromOffsets: source, toOffset: destination)
+                }
             }
             .navigationTitle("Friends")
+            .navigationBarItems(leading: EditButton()
+                                    .font(.system(size: 25))
+            )
+            
         }
     }
+    
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
