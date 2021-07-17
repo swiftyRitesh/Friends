@@ -18,7 +18,7 @@ struct NewFriendView: View {
                                icon: "triangle",
                                school: "",
                                slothImage: "sloth3",
-                               link: URL(string: "https://google.com")!,
+                               link: "https://google.com",
                                attack: 0,
                                defence: 0,
                                type: [.normal])
@@ -107,6 +107,9 @@ struct NewFriendView: View {
                                in: 0...30,
                                step: 1)
                     }
+                    
+                    TextField("Sloth Image", text: $friend.link)
+                        .foregroundColor(.blue)
                 }
                 
                 Section {

@@ -17,7 +17,7 @@ struct Friend: Identifiable, Equatable {
     var school: String
     
     var slothImage: String
-    var link: URL
+    var link: String
     
     var attack: Double
     var defence: Double

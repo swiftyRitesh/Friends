@@ -48,7 +48,7 @@ struct FriendDetailView: View {
                         .shadow(radius: 6)
                         .padding(.bottom, -250 / 2)
                         .onTapGesture {
-                            openURL(friend.link)
+                            openURL(URL(string: friend.link)!)
                         }
                     
                     HStack {
@@ -98,7 +98,7 @@ struct FriendDetailView_Previews: PreviewProvider {
                                    icon: "pc",
                                    school: "Tinkercademy",
                                    slothImage: "sloth1",
-                                   link: URL(string: "https://shorturl.at/stuA7")!,
+                                   link: "https://shorturl.at/stuA7",
                                    attack: 10,
                                    defence: 15,
                                    type: [.grass, .electric])))
