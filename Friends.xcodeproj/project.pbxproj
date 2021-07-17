@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		71151D842690188700E63216 /* FriendType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71151D832690188700E63216 /* FriendType.swift */; };
 		712CA14226994BC000B23D4E /* NewFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712CA14126994BC000B23D4E /* NewFriendView.swift */; };
+		7135F7FD26A2714F000A5E0E /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7135F7FC26A2714F000A5E0E /* SFSymbols.swift */; };
 		71D2D07D2686CCA7005B229D /* FriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D2D07C2686CCA7005B229D /* FriendsApp.swift */; };
 		71D2D07F2686CCA7005B229D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D2D07E2686CCA7005B229D /* ContentView.swift */; };
 		71D2D0812686CCA9005B229D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71D2D0802686CCA9005B229D /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		71151D832690188700E63216 /* FriendType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendType.swift; sourceTree = "<group>"; };
 		712CA14126994BC000B23D4E /* NewFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendView.swift; sourceTree = "<group>"; };
+		7135F7FC26A2714F000A5E0E /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		71D2D0792686CCA7005B229D /* Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D2D07C2686CCA7005B229D /* FriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsApp.swift; sourceTree = "<group>"; };
 		71D2D07E2686CCA7005B229D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				71D2D07C2686CCA7005B229D /* FriendsApp.swift */,
 				71D2D07E2686CCA7005B229D /* ContentView.swift */,
 				712CA14126994BC000B23D4E /* NewFriendView.swift */,
+				7135F7FC26A2714F000A5E0E /* SFSymbols.swift */,
 				71D2D08D2686D855005B229D /* FriendDetailView.swift */,
 				71151D832690188700E63216 /* FriendType.swift */,
 				71D2D08B2686CD78005B229D /* Friends.swift */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71151D842690188700E63216 /* FriendType.swift in Sources */,
+				7135F7FD26A2714F000A5E0E /* SFSymbols.swift in Sources */,
 				712CA14226994BC000B23D4E /* NewFriendView.swift in Sources */,
 				71D2D07F2686CCA7005B229D /* ContentView.swift in Sources */,
 				71D2D08C2686CD78005B229D /* Friends.swift in Sources */,
