@@ -40,14 +40,6 @@ struct NewFriendView: View {
                             .autocapitalization(.none)
                         
                         Picker("", selection: $friend.icon) {
-                            TextField("Search", text: $text)
-                            
-                            ForEach (symbols, id: \.self) { symbol in
-                                
-                                if symbol.contains("\(text)") {
-                                    FilteredSymbols.append("1")
-                                }
-                            }
                             
                             ForEach(symbols, id: \.self) { symbol in
                                 
@@ -147,6 +139,6 @@ struct NewFriendView: View {
 
 struct NewFriendView_Previews: PreviewProvider {
     static var previews: some View {
-        NewFriendView(friends: .constant([]), text: .constant(""))
+        NewFriendView(friends: .constant([]))
     }
 }
