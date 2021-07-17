@@ -12,7 +12,6 @@ struct NewFriendView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var friends: [Friend]
-    @Binding var text: String
     
     @State var isDiscard = false
     @State var friend = Friend(name: "",
