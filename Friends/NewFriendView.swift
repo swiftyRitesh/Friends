@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct NewFriendView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var friends: [Friend]
+    @Binding var text: String
     
-    @State var SfSymbols = symbols
     @State var isDiscard = false
     @State var friend = Friend(name: "",
                                icon: "triangle",
@@ -22,6 +23,8 @@ struct NewFriendView: View {
                                attack: 0,
                                defence: 0,
                                type: [.normal])
+    
+    public var FilteredSymbols : [String] = []
     
     
     var body: some View {
@@ -34,10 +37,21 @@ struct NewFriendView: View {
                     HStack {
                         Image(systemName: friend.icon)
                         
+                        TextField("icon", text: $friend.icon)
+                            .autocapitalization(.none)
+                        
                         Picker("", selection: $friend.icon) {
+                            TextField("Search", text: $text)
+                            
+                            ForEach (symbols, id: \.self) { symbol in
+                                
+                                if symbol.contains("\(text)") {
+                                    FilteredSymbols.append("1")
+                                }
+                            }
                             
                             ForEach(symbols, id: \.self) { symbol in
-                    
+                                
                                 HStack {
                                     Text("\(symbol)")
                                         .tag("\(symbol)")
@@ -116,14 +130,15 @@ struct NewFriendView: View {
                             isDiscard = true
                         }
                         .foregroundColor(.red)
+                        
+                        
                         Spacer()
                         Image(systemName: "trash")
                             .foregroundColor(.black)
                         
                     }
-                    //.alert(isPresented: $isDiscard, content: {
-                    //    Primary
-                    //})
+                    
+                    
                 }
             }
             .navigationTitle("New Friend")
@@ -133,6 +148,6 @@ struct NewFriendView: View {
 
 struct NewFriendView_Previews: PreviewProvider {
     static var previews: some View {
-        NewFriendView(friends: .constant([]))
+        NewFriendView(friends: .constant([]), text: .constant(""))
     }
 }
